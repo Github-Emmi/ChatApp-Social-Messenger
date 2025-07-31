@@ -97,22 +97,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details.
-
-yaml
-Copy
-Edit
-
----
-
-### ✅ Next Step:
-You can now:
-1. Go to GitHub → Create the repository
-2. Use the name and description above
-3. Copy this `README.md` into your local project folder
-
-Let me know if you need:
-- A live chat template to get started
-- Frontend or backend boilerplate
-- Instructions to deploy on Netlify + Render
-
-Ready to start pushing files?
