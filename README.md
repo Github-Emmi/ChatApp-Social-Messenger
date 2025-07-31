@@ -1,5 +1,3 @@
-# ChatApp-Social-Messenger
-
 # 💬 ChatApp-Social-Messenger
 
 A real-time chat application with integrated social features — just like Facebook!  
