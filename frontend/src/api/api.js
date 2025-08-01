@@ -6,10 +6,15 @@ const API = axios.create({
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem('access');
-  if (token) {
+  
+  // Don't attach token to public endpoints
+  const publicPaths = ['/register/', '/token/'];
+  const isPublic = publicPaths.some(path => req.url.includes(path));
+
+  if (token && !isPublic) {
     req.headers.Authorization = `Bearer ${token}`;
-    console.log('🔐 Sending token:', token);
   }
+
   return req;
 });
 
@@ -18,7 +23,9 @@ export const fetchPosts = () => API.get('/posts/');
 export const likePost = (postId) => API.post(`/posts/${postId}/like/`);
 export const commentPost = (postId, text) => API.post(`/posts/${postId}/comments/`, { text });
 export const login = (username, password) => API.post('/token/', { username, password });
-export const register = (data) => API.post('/register/', data);
+export const register = (data) =>
+  axios.post(`${process.env.REACT_APP_API_URL}/register/`, data, {
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-export const fetchProfile = (userId) =>
-  API.get(`/users/${userId}/`);
+export const fetchProfile = (userId) => API.get(`/users/${userId}/`);
